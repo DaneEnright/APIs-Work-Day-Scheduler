@@ -1,21 +1,3 @@
-console.log("working");
-
-// var timeDate = document.querySelector("#currentDay");
-// var paraElement = document.querySelectorAll(".lead");
-// var containerEl = document.querySelectorAll(".container");
-// var hourRows = document.querySelectorAll(".row");
-// var saveButton = document.querySelectorAll(".save-btn");
-
-// var currentTime09 = document.querySelector("#hour-09");
-// var currentTime10 = document.querySelector("#hour-10");
-// var currentTime11 = document.querySelector("#hour-11");
-// var currentTime12 = document.querySelector("#hour-12");
-// var currentTime13 = document.querySelector("#hour-13");
-// var currentTime14 = document.querySelector("#hour-14");
-// var currentTime15 = document.querySelector("#hour-15");
-// var currentTime16 = document.querySelector("#hour-16");
-// var currentTime17 = document.querySelector("#hour-17");
-
 // Click on a timeblock hour and able to input text event
 
 // Declare variable for timeblock hour rows
@@ -33,14 +15,6 @@ console.log("working");
 
 // function so that if multiple events added correctly in timeblock
 // setItem stored into local storage
-
-// When page is refreshed the event is still in timeblock
-// getItem is grabbed from local storage and  displayed in timeblock
-
-// Click event causes refresh
-// refreshButtonEl.on("click", function () {
-//     location.reload();
-//   });
 
 // Current Day and time is displayed at top of calendar DONE
 $(document).ready(function () {
@@ -77,8 +51,6 @@ $(document).ready(function () {
   colorUpdater();
 
   var interval = setInterval(colorUpdater, 30000);
-
-  //function
 
   //event handlers
   $(".save-btn").on("click", function () {
