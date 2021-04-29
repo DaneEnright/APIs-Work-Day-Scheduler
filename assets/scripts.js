@@ -16,25 +16,6 @@ console.log("working");
 // var currentTime16 = document.querySelector("#hour-16");
 // var currentTime17 = document.querySelector("#hour-17");
 
-// Current Day and time is displayed at top of calendar DONE
-// Use Moment.js to display to display current time and day and display thru Bootstrap at the top and centered
-
-// moment().format('MMMM Do YYYY, h:mm:ss a'); // April 28th 2021, 11:12:48 pm
-// moment().format('dddd');                    // Wednesday
-// moment().format("MMM Do YY");               // Apr 28th 21
-// moment().format('YYYY [escaped] YYYY');     // 2021 escaped 2021
-// moment().format();
-
-// Displays timeblocks for standard business hours DONE/HTML
-
-// Each timeblock should be color coded Grey for past hours, Red for current hour, and Green for future hours
-
-// function for timeblocks calling on moment.js
-// jQuery to change color to Grey for hours past current hour
-// jQuery to change color to Red for current hour
-// jQuery to change color Green for future hours left in work day
-// return function when all hour timeblocks are color coded
-
 // Click on a timeblock hour and able to input text event
 
 // Declare variable for timeblock hour rows
@@ -61,8 +42,17 @@ console.log("working");
 //     location.reload();
 //   });
 
+// Current Day and time is displayed at top of calendar DONE
 $(document).ready(function () {
-  $("#currentDay").text(moment().format("MMMM Do YYYY, h:mm:ss a"));
+  $("#currentDay").text(moment().format("dddd MMM Do YYYY, h:mm:ss a"));
+
+  // Each timeblock should be color coded Grey for past hours, Red for current hour, and Green for future hours
+
+  // function for timeblocks calling on moment.js
+  // jQuery to change color to Grey for hours past current hour
+  // jQuery to change color to Red for current hour
+  // jQuery to change color Green for future hours left in work day
+  // return function when all hour timeblocks are color coded
 
   function colorUpdater() {
     //check current time check block hour evaluate to see and change color
@@ -87,4 +77,33 @@ $(document).ready(function () {
   colorUpdater();
 
   var interval = setInterval(colorUpdater, 30000);
+
+  //function
+
+  //event handlers
+  $(".save-btn").on("click", function () {
+    // need to capture info that user inputed and store in local storage
+    // need to capture value of input and time block attached to
+    var value = $(this).siblings(".description").val();
+    var time = $(this).parent().attr("id");
+
+    localStorage.setItem(time, value);
+  });
+
+  //display items in local storage into time blocks
+
+  $("hour-9 .description").val(localStorage.getItem("hour-9"));
+  $("hour-10 .description").val(localStorage.getItem("hour-10"));
+  $("hour-11 .description").val(localStorage.getItem("hour-11"));
+  $("hour-12 .description").val(localStorage.getItem("hour-12"));
+  $("hour-13 .description").val(localStorage.getItem("hour-13"));
+  $("hour-14 .description").val(localStorage.getItem("hour-14"));
+  $("hour-15 .description").val(localStorage.getItem("hour-15"));
+  $("hour-16 .description").val(localStorage.getItem("hour-16"));
+  $("hour-17 .description").val(localStorage.getItem("hour-17"));
+  
+
+
+
+
 });
